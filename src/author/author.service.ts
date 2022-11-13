@@ -7,24 +7,25 @@ import { Author } from './entities/author.entity';
 
 @Injectable()
 export class AuthorService {
-
-  constructor(@InjectRepository(Author) private authorRepository: Repository<Author>) { }
+  constructor(
+    @InjectRepository(Author) private authorRepository: Repository<Author>,
+  ) {}
 
   create(createAuthorInput: CreateAuthorInput): Promise<Author> {
-    const author = this.authorRepository.create(createAuthorInput)
-    return this.authorRepository.save(author)
+    const author = this.authorRepository.create(createAuthorInput);
+    return this.authorRepository.save(author);
   }
 
   findAll(): Promise<Author[]> {
-    return this.authorRepository.find()
+    return this.authorRepository.find();
   }
 
   findOne(id: number): Promise<Author> {
     return this.authorRepository.findOne({
       where: {
-        id
-      }
-    })
+        id,
+      },
+    });
   }
 
   update(id: number, updateAuthorInput: UpdateAuthorInput) {

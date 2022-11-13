@@ -5,20 +5,19 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 @ObjectType()
 export class Author {
-
   @PrimaryGeneratedColumn()
-  @Field(type => Int)
-  id: number
+  @Field((type) => Int)
+  id: number;
 
   @Column()
   @Field()
-  name: string
+  name: string;
 
   @Column()
   @Field()
-  surname: string
+  surname: string;
 
-  @OneToMany(() => Post, post => post.author)
+  @OneToMany(() => Post, (post) => post.author)
   @Field(() => [Post], { nullable: true })
-  posts: Post[]
+  posts: Post[];
 }

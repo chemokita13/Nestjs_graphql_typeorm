@@ -6,10 +6,9 @@ import { Post } from './post.entity';
 import { AuthorModule } from 'src/author/author.module';
 import { PostsController } from './posts.controller';
 
-
 @Module({
   imports: [TypeOrmModule.forFeature([Post]), AuthorModule],
   providers: [PostsService, PostsResolver],
-  controllers: [PostsController]
+  controllers: [PostsController],
 })
-export class PostsModule { }
+export class PostsModule {}

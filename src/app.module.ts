@@ -12,18 +12,18 @@ import { AuthorModule } from './author/author.module';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql')
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'database.sqlite',
       entities: [join(__dirname, '/**/*.entity.js')],
-      synchronize: true
+      synchronize: true,
     }),
     PostsModule,
-    AuthorModule
+    AuthorModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
